@@ -12,6 +12,7 @@ import net.minecraftforge.client.MinecraftForgeClient;
 import buildcraft.BuildCraftTransport;
 import buildcraft.compat.forestry.pipes.PipeItemsPropolis;
 import buildcraft.compat.forestry.schematics.SchematicForestryFarmBlock;
+import buildcraft.compat.forestry.schematics.SchematicForestrySoil;
 import buildcraft.compat.forestry.schematics.SchematicForestryWorktable;
 import buildcraft.compat.forestry.schematics.SchematicTileForestry;
 import buildcraft.compat.forestry.schematics.SchematicTileStairsForestry;
@@ -87,6 +88,17 @@ public class CompatModuleForestry extends CompatModuleBase
         CompatUtils.registerSchematic("Forestry:factory", 0, 7, SchematicTileForestry.class);
         CompatUtils.registerSchematic("Forestry:ffarm", 0, 5, SchematicForestryFarmBlock.class);
         CompatUtils.registerSchematic("Forestry:stairs", SchematicTileStairsForestry.class);
+
+        for(int meta = 0; meta < 16; meta++) {
+            if((meta & 0x3) == 1){
+                // Bog Earth (ids 1,5,9) and Peat (id 13) should both require Bog Earth (id 1, which is craftable)
+                CompatUtils.registerSchematic("Forestry:soil", meta, SchematicForestrySoil.class, 1);
+            }
+            else {
+                // Humus (all other ids) should require Humus (id 0, which is craftable)
+                CompatUtils.registerSchematic("Forestry:soil", meta, SchematicForestrySoil.class, 0);
+            }
+        }
     }
 
     public static void missingMapping(FMLMissingMappingsEvent event) {
