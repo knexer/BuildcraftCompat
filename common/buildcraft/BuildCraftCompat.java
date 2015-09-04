@@ -39,6 +39,7 @@ import buildcraft.compat.CompatModuleRailcraft;
 import buildcraft.compat.CompatModuleRedLogic;
 import buildcraft.compat.CompatModuleWAILA;
 import buildcraft.compat.CompatModuleWitchery;
+import buildcraft.compat.CompatModuleEnderStorage;
 import buildcraft.compat.forestry.pipes.network.PacketGenomeFilterChange;
 import buildcraft.compat.forestry.pipes.network.PacketRequestFilterSet;
 import buildcraft.compat.forestry.pipes.network.PacketTypeFilterChange;
