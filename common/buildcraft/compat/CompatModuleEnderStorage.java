@@ -12,7 +12,7 @@ public class CompatModuleEnderStorage extends CompatModuleBase {
 
     @Override
     public void init() {
-        if (Loader.isModLoaded("EnderStorage")) {
+        if (Loader.isModLoaded("EnderStorage") && Loader.isModLoaded("BuildCraft|Builders")) {
             initBuilders();
         }
     }
